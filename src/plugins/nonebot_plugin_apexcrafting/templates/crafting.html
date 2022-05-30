@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: sakura;
+            src: url('./static/regular-bold.ttf')format("truetype");
+        }
+
+        html {
+    width: 450px;
+    height: 550px;
+    margin: 0 ;
+}
+        body {
+    width: 450px;
+    margin: auto;
+}
+
+        .main {
+            /* 容器 1 */
+            position: relative;
+            width: 450px;
+            height: 550px;
+            margin: auto;
+            background: #343C40;
+        }
+
+        .title {
+            /* 当前轮换制造 */
+            position: absolute;
+            left: 84.38px;
+            top: 10px;
+            width: 281.25px;
+            height: 40px;
+            font-family: sakura;
+            margin: auto;
+            font-size: 24px;
+            font-weight: normal;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .subtitle {
+            /* 此战利品不会生成在地面上 */
+            position: absolute;
+            align-items: center;
+            left: 50%;
+            margin: auto;
+            margin-left: -100px;
+            top: 40px;
+            width: 200px;
+            height: 16px;
+            font-family: sakura;
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            color: #9E9E9E;
+        }
+
+        .line1 {
+            /* 直线 1 */
+            position: absolute;
+            left: 40px;
+            top: 60px;
+            width: 370px;
+            height: 0px;
+            border: 1px solid #D8D8D8;
+        }
+
+        .daily-crafting {
+            /* 容器 2 */
+            position: absolute;
+            left: 25px;
+            top: 74px;
+            width: 400px;
+            height: 200px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .daily {
+            /* 每日： */
+            position: absolute;
+            left: 25px;
+            top: 5px;
+            width: 72px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .time1 {
+            /* %H:%M:%S后更新 */
+            position: absolute;
+            left: 235px;
+            top: 15px;
+            width: 150px;
+            height: 20px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 14px;
+            font-weight: normal;
+            text-align: right;
+            color: #9E9E9E;
+        }
+
+        .line2 {
+            /* 直线 2 */
+            position: absolute;
+            left: 15px;
+            top: 35px;
+            width: 370px;
+            height: 0px;
+            margin: auto;
+            border: 1px solid #D8D8D8;
+        }
+
+        .daily-img1 {
+            /* 容器 7 */
+            position: absolute;
+            left: 80px;
+            top: 50px;
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+        }
+
+        .daily-img2 {
+            /* 容器 8 */
+            position: absolute;
+            left: 250px;
+            top: 50px;
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+        }
+
+        .cost-img1 {
+            /* 容器 9 */
+            position: absolute;
+            left: 80px;
+            top: 145px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .daily-text1 {
+            /* 3倍镜 */
+            position: absolute;
+            left: 30px;
+            top: 130px;
+            width: 170px;
+            height: 25px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            color: #9E9E9E;
+        }
+
+        .daily-text2 {
+            /* 3倍镜 */
+            position: absolute;
+            left: 200px;
+            top: 130px;
+            width: 170px;
+            height: 25px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            color: #9E9E9E;
+        }
+
+        .cost-img2 {
+            /* 容器 10 */
+            position: absolute;
+            left: 250px;
+            top: 145px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .craftingimg {
+            width: 70px;
+            border-radius: 15px;
+        }
+
+        .costimg {
+            width: 20px;
+        }
+
+        .daily-cost-text2 {
+            /* 30 */
+            position: absolute;
+            left: 285px;
+            top: 145px;
+            width: 21px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .daily-cost-text1 {
+            /* 30 */
+            position: absolute;
+            left: 115px;
+            top: 145px;
+            width: 21px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .weekly-crafting {
+            /* 容器 2 */
+            position: absolute;
+            left: 25px;
+            top: 287px;
+            width: 400px;
+            height: 200px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .weekly {
+            /* 每周： */
+            position: absolute;
+            left: 25px;
+            top: 5px;
+            width: 72px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .time2 {
+            /* %d%H:%M:%S后更新 */
+            position: absolute;
+            left: 185px;
+            top: 14px;
+            width: 200px;
+            height: 19px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 14px;
+            font-weight: normal;
+            text-align: right;
+            color: #9E9E9E;
+        }
+
+        .line3 {
+            /* 直线 2 */
+            position: absolute;
+            left: 15px;
+            top: 35px;
+            width: 370px;
+            height: 0px;
+            margin: auto;
+            border: 1px solid #D8D8D8;
+        }
+
+        .weekly-img1 {
+            /* 容器 7 */
+            position: absolute;
+            left: 80px;
+            top: 50px;
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+        }
+
+        .weekly-img2 {
+            /* 容器 8 */
+            position: absolute;
+            left: 250px;
+            top: 50px;
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+        }
+
+        .weekly-text1 {
+            /* 3倍镜 */
+            position: absolute;
+            left: 30px;
+            top: 130px;
+            width: 170px;
+            height: 25px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            color: #9E9E9E;
+        }
+
+        .weekly-text2 {
+            /* 3倍镜 */
+            position: absolute;
+            left: 200px;
+            top: 130px;
+            width: 170px;
+            height: 25px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            color: #9E9E9E;
+        }
+
+        .cost-img3 {
+            /* 容器 9 */
+            position: absolute;
+            left: 80px;
+            top: 145px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .cost-img4 {
+            /* 容器 10 */
+            position: absolute;
+            left: 250px;
+            top: 145px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .weekly-cost-text1 {
+            /* 30 */
+            position: absolute;
+            left: 115px;
+            top: 145px;
+            width: 21px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .weekly-cost-text2 {
+            /* 30 */
+            position: absolute;
+            left: 285px;
+            top: 145px;
+            width: 21px;
+            height: 27px;
+            margin: auto;
+            font-family: sakura;
+            font-size: 18px;
+            font-weight: normal;
+            color: #9E9E9E;
+        }
+
+        .color-subtitle {
+            color: #ff8826;
+        }
+
+        .attention {
+            position: absolute;
+            top: 490px;
+            margin: auto;
+            left: 50%;
+            margin-left: -220px;
+            font-family: sakura;
+            width: 440px;
+            height: 30px;
+            text-align: center;
+            color: rgb(112, 112, 112);
+        }
+
+        .donation {
+            margin: auto;
+            position: absolute;
+            top: 520px;
+            left: 50%;
+            font-family: sakura;
+            width: 440px;
+            height: 30px;
+            margin-left: -220px;
+            text-align: center;
+            color: rgb(112, 112, 112);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p class="title">当前轮换制造</p>
+        <p class="subtitle">此战利品<b class="color-subtitle">不会</b>生成在地面上</p>
+        <div class="line1"></div>
+        <div class="daily-crafting">
+            <p class="daily">每日：</p>
+            <p class="time1">剩余时间：{{ timeRemain1 }}</p>
+            <div class="line2"></div>
+            <div class="daily-img1">
+                <img class="craftingimg" src="{{daily_crafting_img1}}" alt="">
+            </div>
+            <div class="daily-img2">
+                <img class="craftingimg" src="{{daily_crafting_img2}}" alt="">
+            </div>
+            <p class="daily-text1"> </p>
+            <p class="daily-text2"> </p>
+            <div class="cost-img1">
+                <img class="costimg" src="./static/crafting_materials.png" alt="">
+            </div>
+            <div class="cost-img2">
+                <img class="costimg" src="./static/crafting_materials.png" alt="">
+            </div>
+            <p class="daily-cost-text1">{{daily_crafting_cost1}}</p>
+            <p class="daily-cost-text2">{{daily_crafting_cost2}}</p>
+        </div>
+        <div class="weekly-crafting">
+            <p class="weekly">每周：</p>
+            <p class="time2">剩余时间：{{ timeRemain2 }}</p>
+            <div class="line3"></div>
+            <div class="weekly-img1">
+                <img class="craftingimg" src="{{weekly_crafting_img1}}" alt="">
+            </div>
+            <div class="weekly-img2">
+                <img class="craftingimg" src="{{weekly_crafting_img2}}" alt="">
+            </div>
+            <p class="weekly-text1"> </p>
+            <p class="weekly-text2"> </p>
+            <div class="cost-img3">
+                <img class="costimg" src="./static/crafting_materials.png" alt="">
+            </div>
+            <div class="cost-img4">
+                <img class="costimg" src="./static/crafting_materials.png" alt="">
+            </div>
+            <p class="weekly-cost-text1">{{weekly_crafting_cost1}}</p>
+            <p class="weekly-cost-text2">{{weekly_crafting_cost2}}</p>
+        </div>
+        <p class="attention">更多命令？试试发送“/命令”（暂未完善）</p>
+        <p class="donation">小公告：地图查询UI升级ing</p>
+    </div>
+</body>
+
+</html>

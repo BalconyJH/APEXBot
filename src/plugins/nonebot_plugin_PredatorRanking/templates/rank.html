@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: regular-bold;
+            src: url('./static/regular-bold.ttf')format("truetype");
+        }
+
+        @font-face {
+            font-family: PuHuiTi-Regular;
+            src: url('./static/Alibaba-PuHuiTi-R.ttf')format("truetype");
+        }
+
+        body {
+            /* 容器 1 */
+            position: relative;
+            width: 1000px;
+            height: 700px;
+            background: #565656;
+            margin: auto;
+        }
+
+        html {
+            width: 1000px;
+            height: 700px;
+            margin: auto;
+        }
+
+        .container1 {
+            /* 容器 1 */
+            position: relative;
+            margin: auto;
+            width: 1000px;
+            height: 700px;
+            background: #343C40;
+        }
+
+        .title {
+            /* 矩形 2 */
+            position: absolute;
+            left: 25px;
+            top: 25px;
+            width: 950px;
+            height: 70px;
+            border-radius: 15px;
+            background: rgba(216, 216, 216, 0.2);
+        }
+
+        .perdatortext {
+            /* 猎杀底分ApexPredator */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -26px;
+            margin-left: -270px;
+            width: 540px;
+            height: 52px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 36px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #FF6666;
+        }
+
+        .update {
+            /* 本数据每小时更新一次 */
+            position: absolute;
+            left: 800px;
+            top: 45px;
+            width: 140px;
+            height: 20px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 14px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .rp {
+            /* 排位 */
+            position: absolute;
+            left: 190px;
+            top: 120px;
+            width: 150px;
+            height: 35px;
+            margin: 0;
+            font-family: PuHuiTi-Regular;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .ap {
+            /* 竞技场 */
+            position: absolute;
+            left: 690px;
+            top: 120px;
+            width: 150px;
+            height: 35px;
+            margin: 0;
+            font-family: PuHuiTi-Regular;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .line1 {
+            /* 直线 1 */
+            position: absolute;
+            left: 251px;
+            top: 370px;
+            width: 500px;
+            height: 0px;
+            transform: rotate(90deg);
+            border: 1px solid #D8D8D8;
+        }
+
+        .line2 {
+            /* 直线 2 */
+            position: absolute;
+            left: 25px;
+            top: 630px;
+            width: 950px;
+            height: 0px;
+            border: 1px solid #D8D8D8;
+        }
+
+        .pc-rp {
+            /* 容器 3 */
+            position: absolute;
+            left: 33px;
+            top: 170px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pc-img {
+            /* 容器 10 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .pc-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .pc-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .pc-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .ps-rp {
+            /* 容器 4 */
+            position: absolute;
+            left: 266px;
+            top: 170px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .ps-img {
+            /* 容器 10 */
+            position: absolute;
+            left: 68px;
+            top: 25px;
+            width: 65px;
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .ps-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .ps-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .ps-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .xbox-rp {
+            /* 容器 3 */
+            position: absolute;
+            left: 33px;
+            top: 403px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .xbox-img {
+            /* 容器 10 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .xbox-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+
+        .xbox-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .xbox-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .switch-rp {
+            /* 容器 5 */
+            position: absolute;
+            left: 266px;
+            top: 403px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .switch-img {
+            /* 容器 10 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .switch-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .switch-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .switch-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .pc-ap {
+            /* 容器 6 */
+            position: absolute;
+            left: 533px;
+            top: 170px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pcap-img {
+            /* 容器 11 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .pcap-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .pcap-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .pcap-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .ps-ap {
+            /* 容器 8 */
+            position: absolute;
+            left: 766px;
+            top: 170px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .psap-img {
+            /* 容器 11 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .psap-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .psap-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .psap-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .xbox-ap {
+            /* 容器 9 */
+            position: absolute;
+            left: 533px;
+            top: 403px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .xboxap-img {
+            /* 容器 11 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .xboxap-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .xboxap-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+        .xboxap-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+        .switch-ap {
+            /* 容器 7 */
+            position: absolute;
+            left: 766px;
+            top: 403px;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .switchap-img {
+            /* 容器 11 */
+            position: absolute;
+            left: 75px;
+            top: 25px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .switchap-text1 {
+            /* 当前排名： */
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .switchap-text2 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 130px;
+            width: 150px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+        .switchap-text3 {
+            /* 当前分数： */
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            width: 200px;
+            height: 26px;
+            margin: auto;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0em;
+            color: #D8D8D8;
+            ;
+        }
+
+        .attention {
+            position: relative;
+            top: 637px;
+            text-align: center;
+            color: #969696;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            margin: auto;
+        }
+
+        .color {
+            color: #ff8974;
+        }
+
+        .zhushi {
+            position: relative;
+            top: 640px;
+            text-align: center;
+            color: #969696;
+            font-family: PuHuiTi-Regular;
+            font-size: 18px;
+            font-weight: normal;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="title">
+            <p class="perdatortext">猎杀底分</p>
+            <p class="update">本数据每小时更新一次</p>
+        </div>
+        <p class="rp">大逃杀排位</p>
+        <p class="ap">竞技场排位</p>
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <!-- pc -->
+        <div class="pc-rp">
+            <div class="pc-img">
+                <img src="./static/origin.png" alt="">
+            </div>
+            <p class="pc-text1">当前排名：{{pc_foundrank_rp}}</p>
+            <p class="pc-text2">当前分数：{{pc_val_rp}}</p>
+            <p class="pc-text3">大师人数*：{{pc_totalMastersAndPreds_rp}}</p>
+        </div>
+        <!-- ps4 -->
+        <div class="ps-rp">
+            <div class="ps-img">
+                <img src="./static/playstation.png" alt="">
+            </div>
+            <p class="ps-text1">当前排名：{{ps4_foundrank_rp}}</p>
+            <p class="ps-text2">当前分数：{{ps4_val_rp}}</p>
+            <p class="ps-text3">大师人数*：{{ps4_totalMastersAndPreds_rp}}</p>
+        </div>
+        <!-- xbox -->
+        <div class="xbox-rp">
+            <div class="xbox-img">
+                <img src="./static/xbox.png" alt="">
+            </div>
+            <p class="xbox-text1">当前排名：{{x1_foundrank_rp}}</p>
+            <p class="xbox-text2">当前分数：{{x1_val_rp}}</p>
+            <p class="xbox-text3">大师人数*：{{x1_totalMastersAndPreds_rp}}</p>
+        </div>
+        <!-- switch -->
+        <div class="switch-rp">
+            <div class="switch-img">
+                <img src="./static/nintendo-switch.png" alt="">
+            </div>
+            <p class="switch-text1">当前排名：{{switch_foundrank_rp}}</p>
+            <p class="switch-text2">当前分数：{{switch_val_rp}}</p>
+            <p class="switch-text3">大师人数*：{{switch_totalMastersAndPreds_rp}}</p>
+        </div>
+
+        <!-- pcap -->
+        <div class="pc-ap">
+            <div class="pcap-img">
+                <img src="./static/origin.png" alt="">
+            </div>
+            <p class="pcap-text1">当前排名：{{pc_foundrank_ap}}</p>
+            <p class="pcap-text2">当前分数：{{pc_val_ap}}</p>
+            <p class="pcap-text3">大师人数*：{{pc_totalMastersAndPreds_ap}}</p>
+        </div>
+        <!-- ps4ap -->
+        <div class="ps-ap">
+            <div class="psap-img">
+                <img src="./static/playstation.png" alt="">
+            </div>
+            <p class="psap-text1">当前排名：{{ps4_foundrank_ap}}</p>
+            <p class="psap-text2">当前分数：{{ps4_val_ap}}</p>
+            <p class="psap-text3">大师人数*：{{ps4_totalMastersAndPreds_ap}}</p>
+        </div>
+        <!-- xboxap -->
+        <div class="xbox-ap">
+            <div class="xboxap-img">
+                <img src="./static/xbox.png" alt="">
+            </div>
+            <p class="xboxap-text1">当前排名：{{x1_foundrank_ap}}</p>
+            <p class="xboxap-text2">当前分数：{{x1_val_ap}}</p>
+            <p class="xboxap-text3">大师人数*：{{x1_totalMastersAndPreds_ap}}</p>
+        </div>
+        <!-- switchap -->
+        <div class="switch-ap">
+            <div class="switchap-img">
+                <img src="./static/nintendo-switch.png" alt="">
+            </div>
+            <p class="switchap-text1">当前排名：{{switch_foundrank_ap}}</p>
+            <p class="switchap-text2">当前分数：{{switch_val_ap}}</p>
+            <p class="switchap-text3">大师人数*：{{switch_totalMastersAndPreds_ap}}</p>
+        </div>
+        <p class="attention">更多信息请查看作者爱发电动态哦！命令为&nbsp;&nbsp;<a class="color">/赞助</p>
+        <p class="zhushi">注：排名人数仅计算大师及以上人数(包含猎杀人数在内)</p>
+    </div>
+</body>
+
+</html>

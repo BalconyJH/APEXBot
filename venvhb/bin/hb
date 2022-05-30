@@ -1,0 +1,5 @@
+#!/home/ubuntu/HarukaBot-master/venvhb/bin/python
+from haruka_bot.__main__ import main
+
+if __name__ == '__main__':
+    main()
